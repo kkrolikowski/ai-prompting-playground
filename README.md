@@ -24,7 +24,7 @@ mv .env-example .env
 
 ## Usage
 
-In the `templates` directory, there is a sample prompt in the file: `article_outline.j2`. It is a [Jinja2](https://jinja.palletsprojects.com/en/stable/) template equipped with logic that allows generating data using AI in several formats:
+In the `templates` directory, there is a sample prompt file: `article_outline.j2`. It is a [Jinja2](https://jinja.palletsprojects.com/en/stable/) template equipped with logic that allows generating data using AI in several formats:
 
 - JSON
 - Markdown
