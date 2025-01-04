@@ -1,0 +1,34 @@
+Produce an article outline for "{{ article }}".
+
+Always return valid {{ format }} without sorrouding Markdown tags
+
+Here is an example of the structure:
+{% if format == "json" %}
+{
+    "top_heading_one": ["subheading_one", "subheading_two"],
+    "top_heading_two": ["subheading_one", "subheading_two"]
+}
+{% elif format == "markdown" %}
+# Top Heading One
+## Subheading One
+## Subheading Two
+# Top Heading Two
+## Subheading One
+## Subheading Two
+{% elif format == "yaml" %}
+- name: Example YAML File
+  description: This is an example YAML file.
+  sections:
+    - title: Introduction
+      content: |
+        This is the introduction.
+    - title: Conclusion
+      content: |
+        This is the conclusion.
+{% endif %}
+
+Remember that the output must be like the above, and must be parsable {{ format }}.
+
+----
+
+
