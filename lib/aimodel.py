@@ -1,6 +1,7 @@
 import openai
 from jinja2 import Environment, FileSystemLoader
 
+
 class AIModel:
     def __init__(self, api_key):
         self.model = "gpt-4o"
@@ -10,7 +11,9 @@ class AIModel:
     def complete(self, prompt):
         try:
             res = openai.chat.completions.create(
-                model=self.model, messages=[{"role": "user", "content": prompt}]
+                model=self.model, messages=[
+                    {"role": "user", "content": prompt}
+                ]
             )
             return res.choices[0].message.content
         except Exception as err:
