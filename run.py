@@ -3,13 +3,24 @@ from dotenv import load_dotenv
 
 from lib.aimodel import AIModel
 
-load_dotenv()
+try:
+    load_dotenv()
 
-ai = AIModel(os.getenv("OPENAI_API_KEY"))
+    api_key = os.getenv("OPENAI_API_KEY")
 
-prompt = ai.prompt_render({
-    "variables": {"article": "What is data engineering?", "format": "yaml"},
-    "template": "article_outline"
-})
+    if not api_key:
+        raise Exception("OpenAI API key is required")
 
-print(ai.complete(prompt))
+    ai = AIModel(os.getenv("OPENAI_API_KEY"))
+
+    prompt = ai.prompt_render({
+        "variables": {
+            "article": "What is data engineering?",
+            "format": "json"
+        },
+        "template": "article_outline"
+    })
+
+    print(ai.complete(prompt))
+except Exception as e:
+    print(e)
